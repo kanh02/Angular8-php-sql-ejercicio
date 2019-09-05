@@ -1,0 +1,22 @@
+<div id="content" class="col-lg-10">
+  <div class="col-lg-offset-1">
+    <header id="header" class="col-lg-12">
+      <h1>{{ title }}</h1>
+    </header>
+      <nav id="nav" class="col-lg-12">
+        <ul>
+          <li><a [routerLink]="[ '/home']" [routerLinkActive]="['Activado']" >Home</a></li>
+          <li><a [routerLink]="[ '/productos']" [routerLinkActive]="['Activado']">Productos</a></li>
+          <li><a [routerLink]="[ '/crear-producto']" [routerLinkActive]="['Activado']">Crear Producto</a></li>
+          <li><a [routerLink]="[ '/contacto']" [routerLinkActive]="['Activado']">Contacto</a></li>
+        </ul>
+      </nav>
+      <section id="main" class="col-lg-12">
+        <h3>Texto principal</h3>
+        <router-outlet></router-outlet>
+      </section>
+      <footer class="col-lg-12">
+        <p>Curso de angular</p>
+      </footer>
+  </div>
+</div>

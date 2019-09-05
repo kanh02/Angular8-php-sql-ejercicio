@@ -1,0 +1,8 @@
+instalar composer para gestionar pquetes
+
+isntalar php
+instalar slq db
+
+
+
+o crear una db con la tabla segun requiramos 
