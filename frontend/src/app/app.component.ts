@@ -8,7 +8,7 @@ import { GLOBAL } from './services/global';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title:string = 'angular-webapp';
+  public title:string = 'Angular-WebApp';
   public header_color:string;
 
   constructor(){

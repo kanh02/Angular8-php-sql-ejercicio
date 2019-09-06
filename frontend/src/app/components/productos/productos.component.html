@@ -17,8 +17,8 @@
                         <h3>{{producto.precio}} €</h3>
 
                         <div class="botones" *ngIf="confirmado !=producto.id">
-                            <a [routerLink]="['/producto',producto.id]" class="btn btn-md btn-primary">Ver</a>
-                            <a [routerLink]="['/producto-edit',producto.id]" class="btn btn-md btn-warning">Editar</a>
+                            <a routerLink="/producto,producto.id" class="btn btn-md btn-primary">Ver</a>
+                            <a routerLink="/producto-edit,producto.id" class="btn btn-md btn-warning">Editar</a>
                             <a (click)="borrarConfirm()"class="btn btn-md btn-danger">Eliminar</a>
                         </div>
                         <div class="seguro" *ngIf="confirmado == producto.id">

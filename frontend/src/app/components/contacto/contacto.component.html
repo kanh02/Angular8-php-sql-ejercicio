@@ -1,1 +1,27 @@
-<h1>contacto</h1>
+<div class="container">
+    <h4>Contacto</h4>
+    <div>
+        <form #formContacto="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6">
+            <p>
+                <label for="nombre">Nombre:</label>
+                <span *ngIf="!nombre.valid && nombre.touched" class="label label-danger"> Nombre Obligatorio!</span>
+                <input type="text" placeholder="Escribe tu nombre" #nombre="ngModel" name="nombre"
+                    [(ngModel)]="contacto.nombre" required>
+            </p>
+            <p>
+                <label for="correo">Correo:</label>
+                <span *ngIf="!correo.valid && correo.touched" class="label label-danger"> Correo Obligatorio!</span>
+                <input type="email" placeholder="Example@gmail.com" #correo="ngModel" name="correo"
+                    [(ngModel)]="contacto.correo" required>
+            </p>
+            <p>
+                <label for="texto">Comentario:</label>
+            </p>
+            <textarea type="text" placeholder="Dejanos tu comentario" #comentario="ngModel" name="comentario"
+                [(ngModel)]="contacto.comentario" required></textarea>
+            <p>
+                <input type="submit" value="Enviar" class="btn btn-success" [disabled]="!formContacto.form.valid">
+            </p>
+        </form>
+    </div>
+</div>
