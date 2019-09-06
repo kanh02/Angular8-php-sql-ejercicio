@@ -36,7 +36,7 @@
 #nav ul li a{
     display: block;
     line-height: 29px;
-    color: white;
+    color: brown;
     height: 30px;
     padding-left: 10px;
     padding-right: 10px;
@@ -45,10 +45,15 @@
 #nav ul li a:hover{
     text-decoration: none;
     background: #e03137;
+    color: white;
+
 }
 .activado{
     text-decoration: none !important;
     border-bottom: 2px solid yellow !important;
+}
+section h3{
+    margin-top: 22px;
 }
 #main.jumbotron{
     padding: 50px;
@@ -73,13 +78,6 @@
     width: 100%;
     height: 200px;;
 }
-
-
-
-
-
-
-
 
 /**************footer*************/
 footer{

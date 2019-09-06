@@ -16,6 +16,7 @@ export class ProductosComponent{
 
     public title:string;
     public productos: Producto[];
+    public confirmado;
 
     constructor(
         private _route:ActivatedRoute,
@@ -23,21 +24,49 @@ export class ProductosComponent{
         private _productoService:ProductoService
     ){
         this.title = "listado de productos";
+        this.confirmado = null;
     }
 
     ngOnInit(){
        console.log('productos listado');
-       this._productoService.getProductos().subscribe(
-           result=>{
-               result = this.productos;
-               console.log(result+"llamada ok");
-               console.log(this.productos);
+       this.getProductos();  
+    }
+    getProductos(){
 
-           },error=>{
-               console.log(<any>error+"error en la llamada Get");
+        this._productoService.getProductos().subscribe(
+            result=>{
+                result = this.productos;
+                console.log(result+"llamada ok");
+                console.log(this.productos);
+ 
+            },error=>{
+                console.log(<any>error+"error en la llamada Get");
+        });
+    }
 
-           })
-        
+    borrarConfirm(id){
+        this.confirmado = id;
+    }
+    cancelarConfirm(id){
+        this.confirmado = null;
+    }
+
+    onDeleteProducto(id){
+
+        this._productoService.deleteProducto(id).subscribe(
+            response=>{
+                if(response == 200){
+                    console.log(response);
+                    this.getProductos();
+                }else{
+                    console.log("error en el llamado");
+                }
+            },
+            error=>{
+                console.log(error);
+            }
+        );
+
     }
 
 }

@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:'contacto',component:ContactoComponent},
   {path:'crear-producto',component:CrearProductoComponent},
   {path:'producto/:id',component:ProductoDetailComponent},
-  {path:'editar-producto/:id',component:ProductoEditComponent},
+  {path:'producto-edit/:id',component:ProductoEditComponent},
   {path:'',component:HomeComponent},
 
   {path:'**',component:ErrorComponent}

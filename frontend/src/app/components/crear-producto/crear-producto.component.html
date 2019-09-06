@@ -24,7 +24,11 @@
         </p>
         <p>
             <label>Imagen:</label>
+            <span *ngIf="is_edit">
+                <img style="width: 60px;" src="http://localhost/curso-angular4-backend/uploads/{{producto.imagen}}" />
+            </span>
             <input type="file" (change) ="fileChangeEvent($event)"/>
+           
         </p>
         <br/>
         <input type="submit" value="{{title}}" class="btn btn-success" [disabled]="!formProducto.form.valid"/>

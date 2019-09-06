@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Producto } from '../../models/producto';
 import { GLOBAL } from '../global';
+import { Observable } from 'rxjs';
+
 
 @Injectable()
 export class ProductoService {
@@ -16,21 +18,35 @@ export class ProductoService {
         this.url = GLOBAL.url;
 
     }
-    getProductos(){
+    getProductos():Observable<any>{
         return this._http.get(this.url+'productos');
     }
-    getProducto(id){
+
+    getProducto(id):Observable<any>{
         return this._http.get(this.url+'producto'+id);
     }
 
-    addProducto(producto:Producto){
+    addProducto(producto:Producto):Observable<any>{
         let json = JSON.stringify(producto);
         let params = 'json'+json;
         let headers = new HttpHeaders({'Content-Type':'application/xwww-form-urlencode'});
 
         return this._http.post(this.url+'productos',params,{headers:headers});
+    }
+
+    editProducto(id,producto:Producto):Observable<any>{
+        let json = JSON.stringify(producto);
+        let params = 'json'+json;
+        let headers = new HttpHeaders({'Content-Type':'application/xwww-form-urlencode'});
+
+        return this._http.post(this.url+'update-producto/'+id,params,{headers:headers});
+    }
+    deleteProducto(id):Observable<any>{
+
+        return this._http.get(this.url+'delete-producto/'+id);
 
     }
+
     makeFileRequest(url:string,params:Array<string>,files:Array<File>){
         return new Promise((resolve,reject)=>{
             var formData:any = new FormData();  
